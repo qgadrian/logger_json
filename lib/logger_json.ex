@@ -290,6 +290,8 @@ defmodule LoggerJSON do
     end
   end
 
+  def take_metadata(metadata, [] = _keys), do: take_metadata(metadata, :all)
+
   def take_metadata(metadata, :all) do
     metadata
     |> Keyword.drop([:pid, :file, :line, :function, :module])
